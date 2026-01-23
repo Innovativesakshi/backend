@@ -5,3 +5,5 @@ pydantic
 python-dotenv
 email-validator
 httpx
+certifi
+dnspython

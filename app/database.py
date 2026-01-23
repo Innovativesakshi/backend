@@ -4,12 +4,14 @@ from dotenv import load_dotenv
 
 import certifi
 
+from pymongo.server_api import ServerApi
+
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGODB_URL", "mongodb://localhost:27017")
 DB_NAME = os.getenv("DB_NAME", "hrms_lite")
 
-# Add tlsCAFile=certifi.where() to fix SSL handshake errors on cloud platforms/Render
+# Standard configuration
 client = AsyncIOMotorClient(MONGO_URI, tlsCAFile=certifi.where())
 db = client[DB_NAME]
 
